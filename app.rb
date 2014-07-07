@@ -23,8 +23,17 @@ class ContactsApp < Sinatra::Base
   get "/" do
 
     get "/" do
-      erb :root #need to change this
+      erb: root
     end
+
+    #Need to do something like this:
+ #   get "/" do
+ #     if current_user
+ #      erb :root, :locals => {:contact_database => @contact_database}
+ #     else
+ #       erb :root
+ #     end
+ #   end
 
     get "/login" do
       erb :login
@@ -47,8 +56,12 @@ class ContactsApp < Sinatra::Base
     end
   end
 
-# firgured out after time was up
-# @user_database.all.select {|user| user[:username] == params[:username] && user[:password] == params[:password]}.first
+# def current_user
+#  if session[:id]
+#    @user_database.find(session[:id])
+#  end
+# end
+# end
 
 # firgured out last bit after time was up
 # @user_database.all.select {|user| user[:username] == params[:username] && user[:password] == params[:password]}.first
