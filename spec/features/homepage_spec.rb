@@ -13,3 +13,5 @@ feature "Homepage" do
     expect(page).to have_content "Log In to Me!"
   end
 end
+
+#Forgot to do to test until the very end, whoopsy 
