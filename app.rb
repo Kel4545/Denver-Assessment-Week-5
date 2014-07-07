@@ -21,29 +21,34 @@ class ContactsApp < Sinatra::Base
   end
 
   get "/" do
-    erb :root, locals: {:user => session[:user], :contacts => @contact_database}
-  end
 
-  get "/login" do
-    erb :login
-  end
-
-   post "/login" do
-    if check_for_user
-      session[:user] = check_for_user[:id]
+    get "/" do
+      erb :root #need to change this
     end
-    redirect "/"
-  end
 
-  post "/logout" do
-    session.clear
-    redirect "/"
-  end
+    get "/login" do
+      erb :login
+    end
 
-  def check_for_user
-    @user_database.select {|user| user[:username] == params[:username] && user[:password] == params[:password]}
+    post "/login" do
+      if check_for_user
+        session[:user] = check_for_user[:id]
+      end
+      redirect "/"
+    end
+
+    post "/logout" do
+      session.clear
+      redirect "/"
+    end
+
+    def check_for_user
+      @user_database.select {|user| user[:username] == params[:username] && user[:password] == params[:password]}
+    end
   end
-end
 
 # firgured out after time was up
+# @user_database.all.select {|user| user[:username] == params[:username] && user[:password] == params[:password]}.first
+
+# firgured out last bit after time was up
 # @user_database.all.select {|user| user[:username] == params[:username] && user[:password] == params[:password]}.first
