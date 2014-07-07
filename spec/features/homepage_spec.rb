@@ -10,6 +10,6 @@ feature "Homepage" do
     fill_in("Password")
     expect(page).to have_content "Welcome, User"
     click_button "Logout"
-    expect(page).to have_content "Login"
+    expect(page).to have_content "Log In to Me!"
   end
 end
