@@ -38,3 +38,5 @@ class ContactsApp < Sinatra::Base
   end
 end
 
+# firgured out after time was up
+# @user_database.all.select {|user| user[:username] == params[:username] && user[:password] == params[:password]}.first
