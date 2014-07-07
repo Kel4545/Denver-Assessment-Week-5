@@ -20,8 +20,6 @@ class ContactsApp < Sinatra::Base
     @contact_database.insert(:name => "Kirsten", :email => "kirsten@example.com", user_id: hunter[:id])
   end
 
-  get "/" do
-
     get "/" do
       erb: root
     end
