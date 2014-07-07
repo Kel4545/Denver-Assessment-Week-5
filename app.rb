@@ -28,6 +28,13 @@ class ContactsApp < Sinatra::Base
     erb :login
   end
 
+   post "/login" do
+    if check_for_user
+      session[:user] = check_for_user[:id]
+    end
+    redirect "/"
+  end
+
   post "/logout" do
     session.clear
     redirect "/"
